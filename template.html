@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summer School on Sanskrit Computational Linguistics 2026</title>
+    <style>
+        /* Base & CSS Variables */
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #2d3748; background-color: #f7fafc; }
+        :root { --primary: #5c1d24; --primary-light: #7a2831; --accent: #d97706; --bg-light: #fdfbf7; --text-dark: #1a202c; }
+
+        /* Header */
+        header { background: linear-gradient(135deg, var(--primary) 0%, #320f13 100%); color: white; padding: 5rem 2rem 6rem 2rem; text-align: center; border-bottom: 5px solid var(--accent); }
+        .header-container { max-width: 1000px; margin: 0 auto; }
+        .organizers-top { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1.5px; color: #fbd38d; margin-bottom: 1.5rem; font-weight: 600; }
+        header h1 { font-size: 2.8rem; margin-bottom: 1.5rem; line-height: 1.2; font-weight: 700; }
+        .event-date { display: inline-block; background-color: var(--accent); color: white; padding: 0.6rem 1.5rem; border-radius: 30px; font-weight: bold; font-size: 1.1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+
+        /* Sticky Navigation Bar */
+        nav { background-color: white; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border-bottom: 1px solid #e2e8f0; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; flex-wrap: wrap; }
+        nav a { color: var(--text-dark); text-decoration: none; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.95rem; transition: all 0.3s ease; text-transform: uppercase; }
+        nav a:hover { color: var(--accent); background-color: #fffaf0; }
+
+        /* Sections */
+        section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .section-bg-alt { background-color: var(--bg-light); max-width: 100%; margin: 0; }
+        .section-bg-alt .section-inner { max-width: 1200px; margin: 0 auto; padding: 5rem 2rem; }
+        h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 2rem; position: relative; padding-bottom: 0.5rem; }
+        h2::after { content: ''; position: absolute; left: 0; bottom: 0; width: 60px; height: 4px; background-color: var(--accent); }
+
+        /* Overview */
+        .overview-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; }
+        .overview-text p { margin-bottom: 1.2rem; font-size: 1.1rem; text-align: justify; }
+        .quick-facts { background-color: white; border-left: 4px solid var(--primary); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .quick-facts h3 { color: var(--primary); margin-bottom: 1rem; font-size: 1.3rem; }
+        .quick-facts ul { list-style: none; }
+        .quick-facts li { margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative; font-size: 0.95rem; }
+        .quick-facts li::before { content: "✦"; position: absolute; left: 0; color: var(--accent); }
+        @media (max-width: 768px) { .overview-grid { grid-template-columns: 1fr; } }
+
+        /* Cards (Objectives/Outcomes) */
+        .grid-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+        .card-box { background-color: #fff; padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid var(--accent); }
+        .card-box ul { list-style-type: none; }
+        .card-box li { margin-bottom: 1rem; padding-left: 1.8rem; position: relative; }
+        .card-box li::before { content: "✓"; position: absolute; left: 0; color: #10b981; font-weight: bold; }
+        @media (max-width: 768px) { .grid-two-col { grid-template-columns: 1fr; } }
+
+        /* Target Audience */
+        .audience-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
+        .audience-card { background: linear-gradient(to bottom right, #ffffff, #f7fafc); padding: 2rem; text-align: center; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.04); border: 1px solid #e2e8f0; font-weight: 600; color: var(--primary); transition: transform 0.2s; }
+        .audience-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+
+        /* Schedule Table */
+        .table-responsive { overflow-x: auto; margin-top: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-radius: 8px; }
+        table { width: 100%; border-collapse: collapse; background-color: white; text-align: left; min-width: 600px; }
+        th { background-color: var(--primary); color: white; padding: 1.2rem; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; }
+        td { padding: 1.2rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+        tr:hover { background-color: #f8fafc; }
+        .date-cell { font-weight: bold; color: var(--primary); white-space: nowrap; width: 15%; }
+        .activity-cell ul { padding-left: 1.2rem; }
+        .activity-cell li { margin-bottom: 0.4rem; }
+
+        /* Speakers */
+        .speakers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 2rem; }
+        .speaker-card { background-color: white; border-radius: 8px; padding: 2rem 1.5rem; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-bottom: 3px solid #e2e8f0; transition: all 0.3s; }
+        .speaker-card:hover { border-bottom-color: var(--primary); transform: translateY(-3px); }
+        .speaker-avatar { width: 70px; height: 70px; background-color: #edf2f7; color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem auto; font-size: 1.5rem; font-weight: bold; border: 2px solid var(--accent); }
+        .speaker-name { font-size: 1.15rem; font-weight: bold; color: var(--text-dark); margin-bottom: 0.3rem; }
+        .speaker-role { font-size: 0.9rem; color: #718096; }
+
+        /* Footer */
+        footer { background-color: #1a202c; color: #a0aec0; text-align: center; padding: 3rem 2rem; font-size: 0.9rem; border-top: 4px solid var(--primary); }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <header id="home">
+        <div class="header-container">
+            <div class="organizers-top">
+                {{ hero.organizers.main }} <br>
+                <span style="color: white; font-size: 0.85rem; font-weight: normal;">{{ hero.organizers.association }}</span> <br>
+                {{ hero.organizers.partner }}
+            </div>
+            <h1>{{ hero.title_top }} <br><span style="color: #fbd38d;">{{ hero.title_highlight }}</span></h1>
+            <div class="event-date">{{ hero.dates }}</div>
+        </div>
+    </header>
+
+    <!-- Nav -->
+    <nav>
+        <div class="nav-container">
+            <a href="#home">Home</a>
+            <a href="#overview">Overview</a>
+            <a href="#objectives">Objectives & Outcomes</a>
+            <a href="#audience">Target Audience</a>
+            <a href="#schedule">Schedule</a>
+            <a href="#speakers">Resource People</a>
+        </div>
+    </nav>
+
+    <!-- Overview -->
+    <section id="overview">
+        <h2>Overview</h2>
+        <div class="overview-grid">
+            <div class="overview-text">
+                {% for para in overview.paragraphs %}
+                    <p>{{ para }}</p>
+                {% endfor %}
+            </div>
+            <div class="quick-facts">
+                <h3>Key Information</h3>
+                <ul>
+                    {% for fact in overview.facts %}
+                        <li>{{ fact }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Objectives -->
+    <div class="section-bg-alt" id="objectives">
+        <div class="section-inner">
+            <div class="grid-two-col">
+                <div class="card-box">
+                    <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem;">Objectives</h2>
+                    <ul>
+                        {% for obj in objectives.objectives %}
+                            <li>{{ obj }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="card-box">
+                    <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem;">Outcomes</h2>
+                    <ul>
+                        {% for out in objectives.outcomes %}
+                            <li>{{ out }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Target Audience -->
+    <section id="audience">
+        <h2>Target Audience</h2>
+        <div class="audience-container">
+            {% for group in audience.groups %}
+                <div class="audience-card">
+                    {{ group.title }}
+                    {% if group.subtitle %}
+                        <br><span style="font-size:0.85rem; font-weight:normal; color:#718096;">{{ group.subtitle }}</span>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Schedule -->
+    <div class="section-bg-alt" id="schedule">
+        <div class="section-inner">
+            <h2>Tentative Event Schedule</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Activity & Sessions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for day in schedule.days %}
+                        <tr>
+                            <td class="date-cell">{{ day.date }}</td>
+                            <td class="activity-cell">
+                                <ul>
+                                    {% for activity in day.activities %}
+                                        <li>{{ activity }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Speakers -->
+    <section id="speakers">
+        <h2>Resource People</h2>
+        <div class="speakers-grid">
+            {% for person in speakers.people %}
+            <div class="speaker-card">
+                <div class="speaker-avatar">{{ person.initials }}</div>
+                <div class="speaker-name">{{ person.name }}</div>
+                <div class="speaker-role">{{ person.role }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>First Summer School on Sanskrit Computational Linguistics 2026</strong></p>
+        <p>Jointly Organized by Manipal Academy of Higher Education (MAHE), Bengaluru & Indian Institute of Technology, Kharagpur (IIT-KGP)</p>
+    </footer>
+
+</body>
+</html>

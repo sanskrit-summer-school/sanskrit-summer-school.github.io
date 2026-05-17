@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summer School on Sanskrit Computational Linguistics 2026</title>
+    <style>
+        /* Base & CSS Variables */
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #2d3748; background-color: #f7fafc; }
+        :root { --primary: #5c1d24; --primary-light: #7a2831; --accent: #d97706; --bg-light: #fdfbf7; --text-dark: #1a202c; }
+
+        /* Header */
+        header { background: linear-gradient(135deg, var(--primary) 0%, #320f13 100%); color: white; padding: 5rem 2rem 6rem 2rem; text-align: center; border-bottom: 5px solid var(--accent); }
+        .header-container { max-width: 1000px; margin: 0 auto; }
+        .organizers-top { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1.5px; color: #fbd38d; margin-bottom: 1.5rem; font-weight: 600; }
+        header h1 { font-size: 2.8rem; margin-bottom: 1.5rem; line-height: 1.2; font-weight: 700; }
+        .event-date { display: inline-block; background-color: var(--accent); color: white; padding: 0.6rem 1.5rem; border-radius: 30px; font-weight: bold; font-size: 1.1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+
+        /* Sticky Navigation Bar */
+        nav { background-color: white; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border-bottom: 1px solid #e2e8f0; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; flex-wrap: wrap; }
+        nav a { color: var(--text-dark); text-decoration: none; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.95rem; transition: all 0.3s ease; text-transform: uppercase; }
+        nav a:hover { color: var(--accent); background-color: #fffaf0; }
+
+        /* Sections */
+        section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .section-bg-alt { background-color: var(--bg-light); max-width: 100%; margin: 0; }
+        .section-bg-alt .section-inner { max-width: 1200px; margin: 0 auto; padding: 5rem 2rem; }
+        h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 2rem; position: relative; padding-bottom: 0.5rem; }
+        h2::after { content: ''; position: absolute; left: 0; bottom: 0; width: 60px; height: 4px; background-color: var(--accent); }
+
+        /* Overview */
+        .overview-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; }
+        .overview-text p { margin-bottom: 1.2rem; font-size: 1.1rem; text-align: justify; }
+        .quick-facts { background-color: white; border-left: 4px solid var(--primary); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .quick-facts h3 { color: var(--primary); margin-bottom: 1rem; font-size: 1.3rem; }
+        .quick-facts ul { list-style: none; }
+        .quick-facts li { margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative; font-size: 0.95rem; }
+        .quick-facts li::before { content: "✦"; position: absolute; left: 0; color: var(--accent); }
+        @media (max-width: 768px) { .overview-grid { grid-template-columns: 1fr; } }
+
+        /* Cards (Objectives/Outcomes) */
+        .grid-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+        .card-box { background-color: #fff; padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid var(--accent); }
+        .card-box ul { list-style-type: none; }
+        .card-box li { margin-bottom: 1rem; padding-left: 1.8rem; position: relative; }
+        .card-box li::before { content: "✓"; position: absolute; left: 0; color: #10b981; font-weight: bold; }
+        @media (max-width: 768px) { .grid-two-col { grid-template-columns: 1fr; } }
+
+        /* Target Audience */
+        .audience-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
+        .audience-card { background: linear-gradient(to bottom right, #ffffff, #f7fafc); padding: 2rem; text-align: center; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.04); border: 1px solid #e2e8f0; font-weight: 600; color: var(--primary); transition: transform 0.2s; }
+        .audience-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+
+        /* Schedule Table */
+        .table-responsive { overflow-x: auto; margin-top: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-radius: 8px; }
+        table { width: 100%; border-collapse: collapse; background-color: white; text-align: left; min-width: 600px; }
+        th { background-color: var(--primary); color: white; padding: 1.2rem; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; }
+        td { padding: 1.2rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+        tr:hover { background-color: #f8fafc; }
+        .date-cell { font-weight: bold; color: var(--primary); white-space: nowrap; width: 15%; }
+        .activity-cell ul { padding-left: 1.2rem; }
+        .activity-cell li { margin-bottom: 0.4rem; }
+
+        /* Speakers */
+        .speakers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 2rem; }
+        .speaker-card { background-color: white; border-radius: 8px; padding: 2rem 1.5rem; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-bottom: 3px solid #e2e8f0; transition: all 0.3s; }
+        .speaker-card:hover { border-bottom-color: var(--primary); transform: translateY(-3px); }
+        .speaker-avatar { width: 70px; height: 70px; background-color: #edf2f7; color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem auto; font-size: 1.5rem; font-weight: bold; border: 2px solid var(--accent); }
+        .speaker-name { font-size: 1.15rem; font-weight: bold; color: var(--text-dark); margin-bottom: 0.3rem; }
+        .speaker-role { font-size: 0.9rem; color: #718096; }
+
+        /* Footer */
+        footer { background-color: #1a202c; color: #a0aec0; text-align: center; padding: 3rem 2rem; font-size: 0.9rem; border-top: 4px solid var(--primary); }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <header id="home">
+        <div class="header-container">
+            <div class="organizers-top">
+                Centre for Digital Humanities (CDH), MAHE Bengaluru <br>
+                <span style="color: white; font-size: 0.85rem; font-weight: normal;">in association with</span> <br>
+                Indian Institute of Technology-Kharagpur (IIT-KGP)
+            </div>
+            <h1>First Summer School on <br><span style="color: #fbd38d;">Sanskrit Computational Linguistics</span></h1>
+            <div class="event-date">June 22-27, 2026</div>
+        </div>
+    </header>
+
+    <!-- Nav -->
+    <nav>
+        <div class="nav-container">
+            <a href="#home">Home</a>
+            <a href="#overview">Overview</a>
+            <a href="#objectives">Objectives & Outcomes</a>
+            <a href="#audience">Target Audience</a>
+            <a href="#schedule">Schedule</a>
+            <a href="#speakers">Resource People</a>
+        </div>
+    </nav>
+
+    <!-- Overview -->
+    <section id="overview">
+        <h2>Overview</h2>
+        <div class="overview-grid">
+            <div class="overview-text">
+                
+                    <p>The First Summer School on Sanskrit Computational Linguistics is being organised by Manipal Academy of Higher Education (MAHE-Bengaluru) in association with the Indian Institute of Technology Kharagpur, from 22nd June 2026, as a six-day intensive academic programme.</p>
+                
+                    <p>This summer school targets research scholars and faculty members interested in research and development activities in Sanskrit Computational Linguistics. Bringing together traditional scholars and technology-oriented researchers, the summer school aims to foster collaborative learning and promote innovative approaches to language technologies rooted in the Indian intellectual tradition.</p>
+                
+                    <p>This summer school introduces participants to the emerging interdisciplinary domain that integrates Indian grammatical theories with modern computational techniques. The major focus of the summer school is to initiate participants in building prototypes or small modules to solve contemporary, relevant problems in the field of Sanskrit Computational Linguistics. There will be lectures by eminent scholars and researchers in the field, providing sufficient background on the Indian Grammatical Tradition relevant to computational linguistics, an introduction to Python, and modern AI tools to carry out the projects.</p>
+                
+            </div>
+            <div class="quick-facts">
+                <h3>Key Information</h3>
+                <ul>
+                    
+                        <li>Duration: 6 Days Intensive</li>
+                    
+                        <li>Capacity: Limited to 60 participants</li>
+                    
+                        <li>Inclusions: Accommodation and meals provided for selected candidates</li>
+                    
+                        <li>Environment: Immersive & collaborative learning environment</li>
+                    
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Objectives -->
+    <div class="section-bg-alt" id="objectives">
+        <div class="section-inner">
+            <div class="grid-two-col">
+                <div class="card-box">
+                    <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem;">Objectives</h2>
+                    <ul>
+                        
+                            <li>To introduce interdisciplinary research methods combining Sanskrit studies with Natural Language Processing and computational linguistics.</li>
+                        
+                            <li>To provide technical training in Python programming, deep learning, and Large Language Models for Sanskrit and Indic language research.</li>
+                        
+                            <li>To promote collaborative research in Sanskrit, Indian Knowledge Systems, and language technologies.</li>
+                        
+                    </ul>
+                </div>
+                <div class="card-box">
+                    <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem;">Outcomes</h2>
+                    <ul>
+                        
+                            <li>Participants will gain practical skills in computational analysis and digital processing of Sanskrit texts.</li>
+                        
+                            <li>The programme will strengthen interdisciplinary research collaborations and academic networks.</li>
+                        
+                            <li>The summer school will encourage the development of digital tools and research initiatives in Sanskrit Computational Linguistics.</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Target Audience -->
+    <section id="audience">
+        <h2>Target Audience</h2>
+        <div class="audience-container">
+            
+                <div class="audience-card">
+                    Research Scholars
+                    
+                </div>
+            
+                <div class="audience-card">
+                    Young Faculty Members
+                    
+                </div>
+            
+                <div class="audience-card">
+                    Gurukula Students
+                    
+                        <br><span style="font-size:0.85rem; font-weight:normal; color:#718096;">(Vidvat / Acharya level)</span>
+                    
+                </div>
+            
+                <div class="audience-card">
+                    Computational Linguists
+                    
+                </div>
+            
+        </div>
+    </section>
+
+    <!-- Schedule -->
+    <div class="section-bg-alt" id="schedule">
+        <div class="section-inner">
+            <h2>Tentative Event Schedule</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Activity & Sessions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td class="date-cell">22 June 2026</td>
+                            <td class="activity-cell">
+                                <ul>
+                                    
+                                        <li>Introduction to Sanskrit Computational Linguistics: Tasks, Datasets, Tools (3 hours)</li>
+                                    
+                                        <li>Hands-on with the Sanskrit Computational Linguistics Tools (1.5 hours)</li>
+                                    
+                                        <li>Introduction to Python (1.5 hours)</li>
+                                    
+                                </ul>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="date-cell">23 June 2026</td>
+                            <td class="activity-cell">
+                                <ul>
+                                    
+                                        <li>Introduction to Computational Linguistics: Basic Tasks and Classical Methods -- Tokenization, NER, Text Classification, Compound Type Identification, Dependency Parsing (3 hours)</li>
+                                    
+                                        <li>Hands-on for the basic tasks for various languages, including Sanskrit (1.5 hours)</li>
+                                    
+                                        <li>Writing Python code for tokenization and classification (1.5 hours)</li>
+                                    
+                                </ul>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="date-cell">24 June 2026</td>
+                            <td class="activity-cell">
+                                <ul>
+                                    
+                                        <li>Deep Learning for NLP: Word Vectors, Transformer encoders, Pertaining (3 hours)</li>
+                                    
+                                        <li>Hands-on with mBERT and XLM-R for Sanskrit NLP tasks (1.5 hours)</li>
+                                    
+                                        <li>Writing Python code for Sanskrit tasks such as meter identification (1.5 hours)</li>
+                                    
+                                </ul>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="date-cell">25 June 2026</td>
+                            <td class="activity-cell">
+                                <ul>
+                                    
+                                        <li>Large Language Models: Transformer Decoders, Decoding Methods, Instruction Fine-tuning, Prompting (3 hours)</li>
+                                    
+                                        <li>Hands-on with NLLB model for translation, poetry generation (1.5 hours)</li>
+                                    
+                                        <li>Prompting open source models for Sanskrit tasks (1.5 hours)</li>
+                                    
+                                </ul>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="date-cell">26 June 2026</td>
+                            <td class="activity-cell">
+                                <ul>
+                                    
+                                        <li>Shallow and Dense Retrieval, Retrieval-Augmented Generation (RAG): 3 hours</li>
+                                    
+                                        <li>Hands-on for search for Sanskrit documents, RAG for QA (1.5 hours)</li>
+                                    
+                                        <li>Brainstorming session for challenging problems in Sanskrit Computational Processing</li>
+                                    
+                                </ul>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="date-cell">27 June 2026</td>
+                            <td class="activity-cell">
+                                <ul>
+                                    
+                                        <li>Participants will form teams of 3-4 members each, come up with a specific challenge and brainstorm on how that will be solved (3 hours)</li>
+                                    
+                                        <li>Each team makes a 5-minute presentation and 5 minutes of feedback (3 hours)</li>
+                                    
+                                </ul>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Speakers -->
+    <section id="speakers">
+        <h2>Resource People</h2>
+        <div class="speakers-grid">
+            
+            <div class="speaker-card">
+                <div class="speaker-avatar">PG</div>
+                <div class="speaker-name">Prof Pawan Goyal</div>
+                <div class="speaker-role">IIT-Kharagpur (Organiser)</div>
+            </div>
+            
+            <div class="speaker-card">
+                <div class="speaker-avatar">AK</div>
+                <div class="speaker-name">Prof Amba Kulkarni</div>
+                <div class="speaker-role">IIT-Hyderabad</div>
+            </div>
+            
+            <div class="speaker-card">
+                <div class="speaker-avatar">AS</div>
+                <div class="speaker-name">Dr Arjuna S R</div>
+                <div class="speaker-role">MAHE-Bengaluru (Co-organiser)</div>
+            </div>
+            
+            <div class="speaker-card">
+                <div class="speaker-avatar">HT</div>
+                <div class="speaker-name">Dr Hrishikesh Terdalkar</div>
+                <div class="speaker-role">BITS-Hyderabad</div>
+            </div>
+            
+            <div class="speaker-card">
+                <div class="speaker-avatar">SK</div>
+                <div class="speaker-name">Dr Sriram Krishnan</div>
+                <div class="speaker-role">IIIT-Hyderabad</div>
+            </div>
+            
+            <div class="speaker-card">
+                <div class="speaker-avatar">MB</div>
+                <div class="speaker-name">Mr Manoj Balaji</div>
+                <div class="speaker-role">PhD student, IIT-Kharagpur</div>
+            </div>
+            
+            <div class="speaker-card">
+                <div class="speaker-avatar">PR</div>
+                <div class="speaker-name">Mr Pretam Ray</div>
+                <div class="speaker-role">PhD student, IIT-Kharagpur</div>
+            </div>
+            
+            <div class="speaker-card">
+                <div class="speaker-avatar">PV</div>
+                <div class="speaker-name">Mr Prasanna Venkatesh</div>
+                <div class="speaker-role">PhD student, Madras University</div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>First Summer School on Sanskrit Computational Linguistics 2026</strong></p>
+        <p>Jointly Organized by Manipal Academy of Higher Education (MAHE), Bengaluru & Indian Institute of Technology, Kharagpur (IIT-KGP)</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+days:
+  - date: "22 June 2026"
+    activities:
+      - "Introduction to Sanskrit Computational Linguistics: Tasks, Datasets, Tools (3 hours)"
+      - "Hands-on with the Sanskrit Computational Linguistics Tools (1.5 hours)"
+      - "Introduction to Python (1.5 hours)"
+  - date: "23 June 2026"
+    activities:
+      - "Introduction to Computational Linguistics: Basic Tasks and Classical Methods -- Tokenization, NER, Text Classification, Compound Type Identification, Dependency Parsing (3 hours)"
+      - "Hands-on for the basic tasks for various languages, including Sanskrit (1.5 hours)"
+      - "Writing Python code for tokenization and classification (1.5 hours)"
+  - date: "24 June 2026"
+    activities:
+      - "Deep Learning for NLP: Word Vectors, Transformer encoders, Pertaining (3 hours)"
+      - "Hands-on with mBERT and XLM-R for Sanskrit NLP tasks (1.5 hours)"
+      - "Writing Python code for Sanskrit tasks such as meter identification (1.5 hours)"
+  - date: "25 June 2026"
+    activities:
+      - "Large Language Models: Transformer Decoders, Decoding Methods, Instruction Fine-tuning, Prompting (3 hours)"
+      - "Hands-on with NLLB model for translation, poetry generation (1.5 hours)"
+      - "Prompting open source models for Sanskrit tasks (1.5 hours)"
+  - date: "26 June 2026"
+    activities:
+      - "Shallow and Dense Retrieval, Retrieval-Augmented Generation (RAG): 3 hours"
+      - "Hands-on for search for Sanskrit documents, RAG for QA (1.5 hours)"
+      - "Brainstorming session for challenging problems in Sanskrit Computational Processing"
+  - date: "27 June 2026"
+    activities:
+      - "Participants will form teams of 3-4 members each, come up with a specific challenge and brainstorm on how that will be solved (3 hours)"
+      - "Each team makes a 5-minute presentation and 5 minutes of feedback (3 hours)"
