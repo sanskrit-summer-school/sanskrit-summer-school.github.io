@@ -16,7 +16,8 @@ def build_site():
         "objectives": load_yaml("objectives.yml"),
         "audience": load_yaml("audience.yml"),
         "schedule": load_yaml("schedule.yml"),
-        "speakers": load_yaml("speakers.yml")
+        "speakers": load_yaml("speakers.yml"),
+        "registration": load_yaml("registration.yml")
     }
 
     print("Rendering template...")
