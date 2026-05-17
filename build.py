@@ -20,9 +20,9 @@ def build_site():
     }
 
     print("Rendering template...")
-    # Setup Jinja2 environment looking in the current directory
-    env = Environment(loader=FileSystemLoader(searchpath="."))
-    template = env.get_template("template.html")
+    # Setup Jinja2 environment looking in the templates directory
+    env = Environment(loader=FileSystemLoader(searchpath="templates"))
+    template = env.get_template("main_template.html")
 
     # Render the HTML with our data
     output_html = template.render(data_context)

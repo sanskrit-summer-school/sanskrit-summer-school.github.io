@@ -1,0 +1,14 @@
+    <!-- Target Audience -->
+    <section id="audience">
+        <h2>{{ audience.title }}</h2>
+        <div class="audience-container">
+            {% for group in audience.groups %}
+                <div class="audience-card">
+                    {{ group.title }}
+                    {% if group.subtitle %}
+                        <br><span style="font-size:0.85rem; font-weight:normal; color:#718096;">{{ group.subtitle }}</span>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </section>

@@ -77,18 +77,7 @@
 </head>
 <body>
 
-    <!-- Hero -->
-    <header id="home">
-        <div class="header-container">
-            <div class="organizers-top">
-                {{ hero.organizers.main }} <br>
-                <span style="color: white; font-size: 0.85rem; font-weight: normal;">{{ hero.organizers.association }}</span> <br>
-                {{ hero.organizers.partner }}
-            </div>
-            <h1>{{ hero.title_top }} <br><span style="color: #fbd38d;">{{ hero.title_highlight }}</span></h1>
-            <div class="event-date">{{ hero.dates }}</div>
-        </div>
-    </header>
+    {% include 'hero.html' %}
 
     <!-- Nav -->
     <nav>
@@ -102,109 +91,15 @@
         </div>
     </nav>
 
-    <!-- Overview -->
-    <section id="overview">
-        <h2>Overview</h2>
-        <div class="overview-grid">
-            <div class="overview-text">
-                {% for para in overview.paragraphs %}
-                    <p>{{ para }}</p>
-                {% endfor %}
-            </div>
-            <div class="quick-facts">
-                <h3>Key Information</h3>
-                <ul>
-                    {% for fact in overview.facts %}
-                        <li>{{ fact }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-    </section>
+    {% include 'overview.html' %}
 
-    <!-- Objectives -->
-    <div class="section-bg-alt" id="objectives">
-        <div class="section-inner">
-            <div class="grid-two-col">
-                <div class="card-box">
-                    <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem;">Objectives</h2>
-                    <ul>
-                        {% for obj in objectives.objectives %}
-                            <li>{{ obj }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                <div class="card-box">
-                    <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem;">Outcomes</h2>
-                    <ul>
-                        {% for out in objectives.outcomes %}
-                            <li>{{ out }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% include 'objectives.html' %}
 
-    <!-- Target Audience -->
-    <section id="audience">
-        <h2>Target Audience</h2>
-        <div class="audience-container">
-            {% for group in audience.groups %}
-                <div class="audience-card">
-                    {{ group.title }}
-                    {% if group.subtitle %}
-                        <br><span style="font-size:0.85rem; font-weight:normal; color:#718096;">{{ group.subtitle }}</span>
-                    {% endif %}
-                </div>
-            {% endfor %}
-        </div>
-    </section>
+    {% include 'audience.html' %}
 
-    <!-- Schedule -->
-    <div class="section-bg-alt" id="schedule">
-        <div class="section-inner">
-            <h2>Tentative Event Schedule</h2>
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Activity & Sessions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for day in schedule.days %}
-                        <tr>
-                            <td class="date-cell">{{ day.date }}</td>
-                            <td class="activity-cell">
-                                <ul>
-                                    {% for activity in day.activities %}
-                                        <li>{{ activity }}</li>
-                                    {% endfor %}
-                                </ul>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+    {% include 'schedule.html' %}
 
-    <!-- Speakers -->
-    <section id="speakers">
-        <h2>Resource People(Tentative)</h2>
-        <div class="speakers-grid">
-            {% for person in speakers.people %}
-            <div class="speaker-card">
-                <div class="speaker-avatar">{{ person.initials }}</div>
-                <div class="speaker-name">{{ person.name }}</div>
-                <div class="speaker-role">{{ person.role }}</div>
-            </div>
-            {% endfor %}
-        </div>
-    </section>
+    {% include 'speakers.html' %}
 
     <!-- Footer -->
     <footer>

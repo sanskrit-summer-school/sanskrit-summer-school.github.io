@@ -1,0 +1,13 @@
+    <!-- Speakers -->
+    <section id="speakers">
+        <h2>{{ speakers.title }}</h2>
+        <div class="speakers-grid">
+            {% for person in speakers.people %}
+            <div class="speaker-card">
+                <div class="speaker-avatar">{{ person.initials }}</div>
+                <div class="speaker-name">{{ person.name }}</div>
+                <div class="speaker-role">{{ person.role }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>

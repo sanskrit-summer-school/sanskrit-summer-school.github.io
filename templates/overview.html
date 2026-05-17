@@ -1,0 +1,19 @@
+    <!-- Overview -->
+    <section id="overview">
+        <h2>{{ overview.title }}</h2>
+        <div class="overview-grid">
+            <div class="overview-text">
+                {% for para in overview.paragraphs %}
+                    <p>{{ para }}</p>
+                {% endfor %}
+            </div>
+            <div class="quick-facts">
+                <h3>Key Information</h3>
+                <ul>
+                    {% for fact in overview.facts %}
+                        <li>{{ fact }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>

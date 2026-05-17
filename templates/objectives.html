@@ -1,0 +1,23 @@
+    <!-- Objectives -->
+    <div class="section-bg-alt" id="objectives">
+        <div class="section-inner">
+            <div class="grid-two-col">
+                <div class="card-box">
+                    <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem;">{{ objectives.title }}</h2>
+                    <ul>
+                        {% for obj in objectives.objectives %}
+                            <li>{{ obj }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="card-box">
+                    <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem;">{{ objectives.outcomes_title }}</h2>
+                    <ul>
+                        {% for out in objectives.outcomes %}
+                            <li>{{ out }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
