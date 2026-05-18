@@ -1,2 +1,9 @@
-title: "Registration"
+title: "Express Interest"
 url: "https://docs.google.com/forms/d/e/1FAIpQLSeydn2i0k3Ebg3hrZXU-fDrQuinr5XsqHDCa2WeoNEowRTSOg/viewform"
+costs:
+  - category: "Students"
+    amount: "₹2000"
+  - category: "Faculty members"
+    amount: "₹5000"
+  - category: "Working Professionals"
+    amount: "₹8000"

@@ -1,9 +1,22 @@
-    <!-- Registration -->
-    <section id="registration">
+    <!-- Express Interest -->
+    <section id="registration" style="text-align: center;">
         <h2>{{ registration.title }}</h2>
-        <div style="margin-top: 3rem; margin-bottom: 2rem; text-align: center;">
+        
+        <div style="margin: 2rem auto; max-width: 600px; text-align: left; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 4px solid var(--accent);">
+            <h3 style="color: var(--primary); margin-bottom: 1rem; font-size: 1.3rem;">Registration Costs</h3>
+            <ul style="list-style: none; padding: 0;">
+                {% for cost in registration.costs %}
+                <li style="margin-bottom: 0.8rem; padding-bottom: 0.8rem; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between;">
+                    <span style="font-weight: 600; color: var(--text-dark);">{{ cost.category }}</span>
+                    <span style="color: var(--accent); font-weight: bold;">{{ cost.amount }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div style="margin-top: 3rem; margin-bottom: 2rem;">
             <a href="{{ registration.url }}" target="_blank" style="display: inline-block; background-color: var(--accent); color: white; padding: 1.2rem 3rem; border-radius: 50px; font-weight: bold; font-size: 1.25rem; text-decoration: none; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px;">
-                Click here to register
+                Click here to Express Interest
             </a>
         </div>
     </section>
