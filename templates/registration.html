@@ -12,6 +12,11 @@
                 </li>
                 {% endfor %}
             </ul>
+            {% if registration.deadline %}
+            <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px dashed #e2e8f0; text-align: center; color: #e53e3e; font-weight: bold; font-size: 1.1rem;">
+                🚨 {{ registration.deadline }}
+            </div>
+            {% endif %}
         </div>
 
         <div style="margin-top: 3rem; margin-bottom: 2rem; text-align: center;">
