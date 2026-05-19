@@ -12,7 +12,7 @@ days:
       - "Writing Python code for tokenization and classification (1.5 hours)"
   - date: "24 June 2026"
     activities:
-      - "Deep Learning for NLP: Word Vectors, Transformer encoders, Pertaining (3 hours)"
+      - "Deep Learning for NLP: Word Vectors, Transformer encoders, Pretraining (3 hours)"
       - "Hands-on with mBERT and XLM-R for Sanskrit NLP tasks (1.5 hours)"
       - "Writing Python code for Sanskrit tasks such as meter identification (1.5 hours)"
   - date: "25 June 2026"
