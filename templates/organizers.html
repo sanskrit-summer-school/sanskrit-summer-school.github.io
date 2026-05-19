@@ -1,0 +1,17 @@
+    <!-- Organizers -->
+    <div class="section-bg-alt" id="organizers">
+        <div class="section-inner" style="text-align: center;">
+            <h2>{{ organizers.title }}</h2>
+            <div style="display: flex; justify-content: center; align-items: stretch; gap: 4rem; flex-wrap: wrap; margin-top: 3rem;">
+                {% for entity in organizers.entities %}
+                <div style="text-align: center; max-width: 320px; display: flex; flex-direction: column; align-items: center; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <p style="color: var(--accent); font-weight: bold; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem;">{{ entity.role }}</p>
+                    <div style="height: 120px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                        <img src="{{ entity.logo }}" alt="{{ entity.name }} Logo" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+                    </div>
+                    <h3 style="font-size: 1.15rem; color: var(--text-dark); margin-bottom: 0.5rem; line-height: 1.4;">{{ entity.name }}</h3>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>

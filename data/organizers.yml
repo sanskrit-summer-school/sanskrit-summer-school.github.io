@@ -1,0 +1,8 @@
+title: "Organizers"
+entities:
+  - name: "Manipal Academy of Higher Education (MAHE), Bengaluru"
+    role: "Organized By"
+    logo: "images/mahe_logo.svg"
+  - name: "Indian Institute of Technology (IIT) Kharagpur"
+    role: "In Association With"
+    logo: "images/iitkgp_logo.svg"

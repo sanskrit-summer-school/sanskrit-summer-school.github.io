@@ -89,44 +89,6 @@
 <body>
 
         <!-- Hero -->
-    <style>
-        .hero-title-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-            width: 100%;
-            margin-bottom: 1.5rem;
-        }
-        .hero-logo {
-            flex-shrink: 0;
-            height: 100px;
-            width: 100px;
-            object-fit: contain;
-            background: white;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-        }
-        .hero-h1 {
-            margin-bottom: 0 !important;
-            flex: 0 1 auto;
-            text-align: center;
-        }
-        @media (max-width: 768px) {
-            .hero-title-container {
-                gap: 1rem;
-            }
-            .hero-logo {
-                height: 60px;
-                width: 60px;
-                padding: 5px;
-            }
-            .hero-h1 {
-                font-size: 1.8rem !important;
-            }
-        }
-    </style>
     <header id="home">
         <div class="header-container">
             <div class="organizers-top">
@@ -135,11 +97,7 @@
                 Indian Institute of Technology-Kharagpur (IIT-KGP)
             </div>
             
-            <div class="hero-title-container">
-                <img src="images/mahe_logo.svg" alt="MAHE Logo" class="hero-logo">
-                <h1 class="hero-h1">First Summer School on <br><span style="color: #fbd38d;">Sanskrit Computational Linguistics</span></h1>
-                <img src="images/iitkgp_logo.svg" alt="IIT Kharagpur Logo" class="hero-logo">
-            </div>
+            <h1>First Summer School on <br><span style="color: #fbd38d;">Sanskrit Computational Linguistics</span></h1>
 
             <div class="event-date">June 22-27, 2026</div>
         </div>
@@ -455,6 +413,32 @@
             
         </div>
     </section>
+
+        <!-- Organizers -->
+    <div class="section-bg-alt" id="organizers">
+        <div class="section-inner" style="text-align: center;">
+            <h2>Organizers</h2>
+            <div style="display: flex; justify-content: center; align-items: stretch; gap: 4rem; flex-wrap: wrap; margin-top: 3rem;">
+                
+                <div style="text-align: center; max-width: 320px; display: flex; flex-direction: column; align-items: center; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <p style="color: var(--accent); font-weight: bold; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem;">Organized By</p>
+                    <div style="height: 120px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                        <img src="images/mahe_logo.svg" alt="Manipal Academy of Higher Education (MAHE), Bengaluru Logo" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+                    </div>
+                    <h3 style="font-size: 1.15rem; color: var(--text-dark); margin-bottom: 0.5rem; line-height: 1.4;">Manipal Academy of Higher Education (MAHE), Bengaluru</h3>
+                </div>
+                
+                <div style="text-align: center; max-width: 320px; display: flex; flex-direction: column; align-items: center; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <p style="color: var(--accent); font-weight: bold; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem;">In Association With</p>
+                    <div style="height: 120px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                        <img src="images/iitkgp_logo.svg" alt="Indian Institute of Technology (IIT) Kharagpur Logo" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+                    </div>
+                    <h3 style="font-size: 1.15rem; color: var(--text-dark); margin-bottom: 0.5rem; line-height: 1.4;">Indian Institute of Technology (IIT) Kharagpur</h3>
+                </div>
+                
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
