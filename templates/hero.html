@@ -1,4 +1,42 @@
     <!-- Hero -->
+    <style>
+        .hero-title-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            width: 100%;
+            margin-bottom: 1.5rem;
+        }
+        .hero-logo {
+            flex-shrink: 0;
+            height: 100px;
+            width: 100px;
+            object-fit: contain;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+        .hero-h1 {
+            margin-bottom: 0 !important;
+            flex: 0 1 auto;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .hero-title-container {
+                gap: 1rem;
+            }
+            .hero-logo {
+                height: 60px;
+                width: 60px;
+                padding: 5px;
+            }
+            .hero-h1 {
+                font-size: 1.8rem !important;
+            }
+        }
+    </style>
     <header id="home">
         <div class="header-container">
             <div class="organizers-top">
@@ -6,11 +44,13 @@
                 <span style="color: white; font-size: 0.85rem; font-weight: normal;">{{ hero.organizers.association }}</span> <br>
                 {{ hero.organizers.partner }}
             </div>
-            <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
-                <img src="images/mahe_logo.svg" alt="MAHE Logo" style="height: 100px; width: auto; background: white; padding: 10px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.2);">
-                <h1 style="margin-bottom: 0;">{{ hero.title_top }} <br><span style="color: #fbd38d;">{{ hero.title_highlight }}</span></h1>
-                <img src="images/iitkgp_logo.svg" alt="IIT Kharagpur Logo" style="height: 100px; width: auto; background: white; padding: 10px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.2);">
+            
+            <div class="hero-title-container">
+                <img src="images/mahe_logo.svg" alt="MAHE Logo" class="hero-logo">
+                <h1 class="hero-h1">{{ hero.title_top }} <br><span style="color: #fbd38d;">{{ hero.title_highlight }}</span></h1>
+                <img src="images/iitkgp_logo.svg" alt="IIT Kharagpur Logo" class="hero-logo">
             </div>
+
             <div class="event-date">{{ hero.dates }}</div>
         </div>
     </header>
