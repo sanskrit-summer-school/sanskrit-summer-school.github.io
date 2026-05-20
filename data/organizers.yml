@@ -6,3 +6,7 @@ entities:
   - name: "Indian Institute of Technology (IIT) Kharagpur"
     role: "In Association With"
     logo: "images/iitkgp_logo.svg"
+  - name: "Central Sanskrit University"
+    role: "Sponsored By"
+    logo: "https://www.sanskrit.nic.in/images/logo.jpg"
+
